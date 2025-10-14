@@ -1,5 +1,7 @@
 #include "app.h"
 #include "util.h"
+#include "timer.h"
+#include "horn.h"
 
 const int bumper_sensor = EV3_PORT_1;
 const int linemon_sensor = EV3_PORT_3;
@@ -48,6 +50,7 @@ void driver_turn_right(void) {
 void driver_stop(void) {
   ev3_motor_stop(left_motor, false);
   ev3_motor_stop(right_motor, false);
+  
 }
 
 void tracer_run(void) {
@@ -60,6 +63,7 @@ void tracer_run(void) {
 
 void tracer_stop(void) {
   driver_stop();
+  horn_arrived;
 }
 
 typedef enum { // <1>
